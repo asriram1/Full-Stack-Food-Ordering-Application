@@ -1,4 +1,5 @@
-import { isAdmin } from "@/app/api/auth/[...nextauth]/route";
+// import { isAdmin } from "@/app/api/auth/[...nextauth]/route";
+import isAdmin from "@/libs/isAdmin";
 import mongoose from "mongoose";
 import { User } from "@/app/models/User";
 
