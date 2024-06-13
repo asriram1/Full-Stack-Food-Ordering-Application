@@ -1,5 +1,5 @@
-import { isAdmin } from "@/app/api/auth/[...nextauth]/route";
-import { authOptions } from "@/libs/isAdmin";
+import isAdmin from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/libs/authOptions";
 // import isAdmin from "@/libs/isAdmin";
 import { Order } from "@/app/models/Order";
 import mongoose from "mongoose";
