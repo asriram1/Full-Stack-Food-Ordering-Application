@@ -3,7 +3,11 @@ import React, { useState } from "react";
 import SectionHeaders from "@/app/components/layout/SectionHeaders";
 import { useEffect } from "react";
 import { useContext } from "react";
-import { CartContext, cartProductPrice, clearCart } from "@/app/components/AppContext";
+import {
+  CartContext,
+  cartProductPrice,
+  clearCart,
+} from "@/app/components/AppContext";
 import { useParams } from "next/navigation";
 import AddressInputs from "@/app/components/layout/AddressInputs";
 import CartProduct from "@/app/components/menu/CartProduct";
@@ -32,8 +36,8 @@ export default function OrderPage() {
 
   let subtotal = 0;
 
-  if(order?.cartProducts){
-    for (const product of order?.cartProducts){
+  if (order?.cartProducts) {
+    for (const product of order?.cartProducts) {
       subtotal += cartProductPrice(product);
     }
   }
@@ -47,29 +51,32 @@ export default function OrderPage() {
           <p>We will call you when the order is on the way.</p>
         </div>
       </div>
-      {loadingOrder && (<div>Loading Order...</div>)}
+      {loadingOrder && <div>Loading Order...</div>}
       {order && (
         <div className="md:grid grid-cols-2 gap-16">
-          <div>{order.cartProducts.map(product => (
-            <CartProduct key={product._id} product = {product} />
-          ))}
-          <div className="text-right py-2 text-gray-500">
-            Subtotal: 
-            <span className="text-black font-bold inline-block w-8">${subtotal}</span>
-            <br/>
-            Delivery: 
-            <span className="text-black font-bold inline-block w-8">$5</span>
-            <br/>
-            Total: 
-            <span className="text-black font-bold inline-block w-8">${subtotal + 5}</span>
-            
+          <div>
+            {order.cartProducts.map((product) => (
+              <CartProduct key={product._id} product={product} />
+            ))}
+            <div className="text-right py-2 text-gray-500">
+              Subtotal:
+              <span className="text-black font-bold inline-block w-8">
+                ${subtotal}
+              </span>
+              <br />
+              Delivery:
+              <span className="text-black font-bold inline-block w-8">$5</span>
+              <br />
+              Total:
+              <span className="text-black font-bold inline-block w-8">
+                ${subtotal + 5}
+              </span>
             </div>
           </div>
           <div>
             <div className="bg-gray-100 p-4 rounded-lg ">
-                <AddressInputs disabled = {true} addressProps={...order} />
+              <AddressInputs disabled={true} addressProps={order} />
             </div>
-            
           </div>
         </div>
       )}

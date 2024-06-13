@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
             <Header />
             {children}
             <footer className="border-t p-8 text-center text-gray-400 mt-16">
-              &copy; 2024 Tony's Pizza. All rights reserved.
+              &copy; 2024 Tony&apos;s Pizza. All rights reserved.
             </footer>
           </AppProvider>
         </main>

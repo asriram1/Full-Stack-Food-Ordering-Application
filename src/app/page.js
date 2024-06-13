@@ -16,33 +16,33 @@ export default function Home() {
           <p>
             In the heart of Little Italy, where the cobblestone streets echo
             with the sounds of laughter and music, there lies a cornerstone of
-            the community: Tony's Pizzeria. Founded in 1954 by Antonio "Tony"
-            Marcello, this beloved pizza chain has grown from a small,
+            the community: Tony&apos;s Pizzeria. Founded in 1954 by Antonio
+            "Tony" Marcello, this beloved pizza chain has grown from a small,
             family-run eatery to a nationally recognized name, all while staying
             true to its roots. Humble Beginnings Tony Marcello arrived in New
             York from Naples with little more than a suitcase and a head full of
             dreams. He brought with him a family recipe for pizza that had been
             passed down through generations. With a few borrowed dollars and a
-            lot of determination, he opened the first Tony's Pizzeria on a quiet
-            corner of Mulberry Street. From the very beginning, Tony was
+            lot of determination, he opened the first Tony&apos;s Pizzeria on a
+            quiet corner of Mulberry Street. From the very beginning, Tony was
             committed to quality. He insisted on using only the freshest
             ingredients: tomatoes hand-crushed for the sauce, mozzarella made
             fresh daily, and dough kneaded by hand. His dedication paid off as
             word quickly spread, and soon, locals were lining up outside the
-            door to get a taste of Tony's famous pizza.
+            door to get a taste of Tony&apos;s famous pizza.
           </p>
           <p>
-            Growth and Expansion As the pizzeria's popularity grew, so did the
-            demand. In the 1970s, Tony's sons, Marco and Luca, joined the family
-            business. They shared their father's passion for pizza and his
-            commitment to quality. Under their leadership, Tony's Pizzeria
-            opened additional locations across New York City. The expansion
-            didn't stop there. By the 1980s, Tony's Pizzeria had become a
-            household name, known for its authentic, mouthwatering pizza. The
-            Marcello family decided it was time to share their beloved pizza
-            with the rest of the country. They began franchising, carefully
-            selecting partners who shared their dedication to quality and
-            tradition.
+            Growth and Expansion As the pizzeria&apos;s popularity grew, so did
+            the demand. In the 1970s, Tony&apos;s sons, Marco and Luca, joined
+            the family business. They shared their father&apos;s passion for
+            pizza and his commitment to quality. Under their leadership,
+            Tony&apos;s Pizzeria opened additional locations across New York
+            City. The expansion didn&apos;t stop there. By the 1980s,
+            Tony&apos;s Pizzeria had become a household name, known for its
+            authentic, mouthwatering pizza. The Marcello family decided it was
+            time to share their beloved pizza with the rest of the country. They
+            began franchising, carefully selecting partners who shared their
+            dedication to quality and tradition.
           </p>
         </div>
       </section>

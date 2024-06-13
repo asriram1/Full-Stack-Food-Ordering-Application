@@ -79,7 +79,10 @@ export default function MenuItem(menuItem) {
               <div className=" py-2 ">
                 <h3 className="text-center text-gray-700"> Any extras? </h3>
                 {sizes.map((size) => (
-                  <label className="flex items-center gap-2 p-4 border rounded-md mb-1">
+                  <label
+                    key={size.name}
+                    className="flex items-center gap-2 p-4 border rounded-md mb-1"
+                  >
                     <input
                       type="radio"
                       name="size"
@@ -98,7 +101,10 @@ export default function MenuItem(menuItem) {
                   Pick your extras:{" "}
                 </h3>
                 {extraIngredientPrices.map((extra) => (
-                  <label className="flex items-center gap-2 p-4 border rounded-md mb-1">
+                  <label
+                    key={extra.name}
+                    className="flex items-center gap-2 p-4 border rounded-md mb-1"
+                  >
                     <input
                       type="checkbox"
                       name={extra.name}

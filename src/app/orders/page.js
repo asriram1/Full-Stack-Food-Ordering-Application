@@ -61,7 +61,7 @@ export default function OrdersPage() {
                 <div></div>
               </div>
 
-              <div className="justify-end flex gap-2 items-center">
+              <div className="justify-end flex gap-2 items-center whitespace-nowrap">
                 <Link href={"/orders/" + order._id} className="button">
                   Show Order
                 </Link>
