@@ -7,44 +7,8 @@ import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/libs/mongoConnect.js";
 import { UserInfo } from "@/app/models/UserInfo";
+import { authOptions } from "@/libs/authOptions";
 // import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-
-export const authOptions = {
-  secret: process.env.SECRET,
-  adapter: MongoDBAdapter(clientPromise),
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
-    CredentialsProvider({
-      name: "Credentials",
-      id: "credentials",
-      credentials: {
-        username: {
-          label: "Email",
-          type: "email",
-          placeholder: "test@example.com",
-        },
-        password: { label: "Password", type: "password" },
-      },
-      async authorize(credentials, req) {
-        const email = credentials?.email;
-        const password = credentials?.password;
-        mongoose.connect(process.env.REACT_APP_MONGO_URL);
-        const user = await User.findOne({ email });
-        const passwordOk = user && bcrypt.compareSync(password, user.password);
-
-        if (passwordOk) {
-          return user;
-        }
-
-        return;
-        return null;
-      },
-    }),
-  ],
-};
 
 export default async function isAdmin() {
   const session = await getServerSession(authOptions);
@@ -58,7 +22,3 @@ export default async function isAdmin() {
   }
   return userInfo.admin;
 }
-
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
