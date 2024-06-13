@@ -7,8 +7,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/libs/mongoConnect.js";
 import { UserInfo } from "@/app/models/UserInfo";
-// import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 export const authOptions = {
   secret: process.env.SECRET,
   adapter: MongoDBAdapter(clientPromise),
@@ -45,20 +44,3 @@ export const authOptions = {
     }),
   ],
 };
-
-export default async function isAdmin() {
-  const session = await getServerSession(authOptions);
-  const userEmail = session?.user?.email;
-  if (!userEmail) {
-    return false;
-  }
-  const userInfo = await UserInfo.findOne({ email: userEmail });
-  if (!userInfo) {
-    return false;
-  }
-  return userInfo.admin;
-}
-
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
