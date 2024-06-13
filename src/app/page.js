@@ -17,19 +17,20 @@ export default function Home() {
             In the heart of Little Italy, where the cobblestone streets echo
             with the sounds of laughter and music, there lies a cornerstone of
             the community: Tony&apos;s Pizzeria. Founded in 1954 by Antonio
-            "Tony" Marcello, this beloved pizza chain has grown from a small,
-            family-run eatery to a nationally recognized name, all while staying
-            true to its roots. Humble Beginnings Tony Marcello arrived in New
-            York from Naples with little more than a suitcase and a head full of
-            dreams. He brought with him a family recipe for pizza that had been
-            passed down through generations. With a few borrowed dollars and a
-            lot of determination, he opened the first Tony&apos;s Pizzeria on a
-            quiet corner of Mulberry Street. From the very beginning, Tony was
-            committed to quality. He insisted on using only the freshest
-            ingredients: tomatoes hand-crushed for the sauce, mozzarella made
-            fresh daily, and dough kneaded by hand. His dedication paid off as
-            word quickly spread, and soon, locals were lining up outside the
-            door to get a taste of Tony&apos;s famous pizza.
+            &quot;Tony&quot; Marcello, this beloved pizza chain has grown from a
+            small, family-run eatery to a nationally recognized name, all while
+            staying true to its roots. Humble Beginnings Tony Marcello arrived
+            in New York from Naples with little more than a suitcase and a head
+            full of dreams. He brought with him a family recipe for pizza that
+            had been passed down through generations. With a few borrowed
+            dollars and a lot of determination, he opened the first Tony&apos;s
+            Pizzeria on a quiet corner of Mulberry Street. From the very
+            beginning, Tony was committed to quality. He insisted on using only
+            the freshest ingredients: tomatoes hand-crushed for the sauce,
+            mozzarella made fresh daily, and dough kneaded by hand. His
+            dedication paid off as word quickly spread, and soon, locals were
+            lining up outside the door to get a taste of Tony&apos;s famous
+            pizza.
           </p>
           <p>
             Growth and Expansion As the pizzeria&apos;s popularity grew, so did
