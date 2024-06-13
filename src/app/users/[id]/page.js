@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import UserTabs from "@/app/components/layout/UserTabs";
-import { useProfile } from "@/app/components/useProfile";
+import { useProfile } from "@/app/components/UseProfile";
 import UserForm from "@/app/components/layout/UserForm";
 import { useEffect } from "react";
 import { useParams } from "next/navigation";
