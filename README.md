@@ -1,3 +1,25 @@
+## Technologies:  (Next.js (React), Node.js, MongoDB, TailwindCSS, AWS, Vercel) 
+
+Application Link -   https://anirudh-food-ordering.vercel.app
+
+This platform hosts the online delivery system for a pizza store. Allows the pizza store to list menu items, and customers to create an account, add items to cart & pay for delivery to their address.  Uses Google Oauth for authentication, AWS S3 for storing images and Stripe for payment. 
+
+## Running the code locally
+
+- To run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
