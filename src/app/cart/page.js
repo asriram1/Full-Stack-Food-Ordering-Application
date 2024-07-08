@@ -8,13 +8,27 @@ import AddressInputs from "../components/layout/AddressInputs";
 import { useProfile } from "../components/UseProfile";
 import toast from "react-hot-toast";
 import CartProduct from "../components/menu/CartProduct";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function CartPage() {
   const { cartProducts, removeCartProduct } = useContext(CartContext);
-  const [address, setAddress] = useState({});
+  const [address, setAddress] = useState({
+    phone: "",
+    streetAddress: "",
+    city: "",
+    postal: "",
+    state: "",
+  });
+  const session = useSession();
+  const { status } = session;
+
   const { data: profileData } = useProfile();
 
   useEffect(() => {
+    if (status === "unauthenticated") {
+      return redirect("/login");
+    }
     if (typeof window.location.url !== "undefined") {
       if (window.location.url.includes("canceled=1")) {
         toast.error("Payment failed.");
@@ -23,6 +37,9 @@ export default function CartPage() {
   }, []);
 
   useEffect(() => {
+    if (status === "unauthenticated") {
+      return redirect("/login");
+    }
     if (profileData?.city) {
       const { phone, streetAddress, city, postal, state } = profileData;
       const addressFromProfile = { phone, streetAddress, city, postal, state };
@@ -35,9 +52,7 @@ export default function CartPage() {
   }
 
   function handleAddressChange(propName, value) {
-    setAddress((prevAddress) => {
-      ({ ...prevAddress, [propName]: value });
-    });
+    setAddress({ ...address, [propName]: value });
   }
   async function proceedToCheckout(ev) {
     ev.preventDefault();
@@ -144,8 +159,9 @@ export default function CartPage() {
           <h2>Checkout</h2>
           <form action="" onSubmit={proceedToCheckout}>
             <label>Address</label>
+            {console.log(address)}
             <AddressInputs
-              addressProps={address}
+              addressProps={{ address }}
               setAdressProps={handleAddressChange}
             />
             <button type="submit"> Pay ${subtotal + 5}</button>

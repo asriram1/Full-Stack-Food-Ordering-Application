@@ -1,5 +1,4 @@
 import React from "react";
-
 export default function AddressInputs({
   addressProps,
   setAdressProps,
@@ -13,16 +12,20 @@ export default function AddressInputs({
         type="tel"
         placeholder="Phone Number"
         disabled={disabled}
-        value={phone || ""}
-        onChange={(ev) => setAdressProps("phone", ev.target.value)}
+        value={phone}
+        onChange={(ev) => {
+          setAdressProps("phone", ev.target.value);
+        }}
       />
       <label>Street Address</label>
       <input
         type="text"
         placeholder="Street Address"
         disabled={disabled}
-        value={streetAddress || ""}
-        onChange={(ev) => setAdressProps("streetAddress", ev.target.value)}
+        value={streetAddress}
+        onChange={(ev) => {
+          setAdressProps("streetAddress", ev.target.value);
+        }}
       />
       <div className="grid grid-cols-2 gap-4">
         <div>
@@ -31,8 +34,10 @@ export default function AddressInputs({
             type="text"
             placeholder="Postal Code"
             disabled={disabled}
-            value={postal || ""}
-            onChange={(ev) => setAdressProps("postal", ev.target.value)}
+            value={postal}
+            onChange={(ev) => {
+              setAdressProps("postal", ev.target.value);
+            }}
           />
         </div>
         <div>
@@ -41,8 +46,10 @@ export default function AddressInputs({
             type="text"
             placeholder="City"
             disabled={disabled}
-            value={city || ""}
-            onChange={(ev) => setAdressProps("city", ev.target.value)}
+            value={city}
+            onChange={(ev) => {
+              setAdressProps("city", ev.target.value);
+            }}
           />
         </div>
       </div>
@@ -51,8 +58,10 @@ export default function AddressInputs({
         type="text"
         placeholder="State"
         disabled={disabled}
-        value={state || ""}
-        onChange={(ev) => setAdressProps("state", ev.target.value)}
+        value={state}
+        onChange={(ev) => {
+          setAdressProps("state", ev.target.value);
+        }}
       />
     </div>
   );

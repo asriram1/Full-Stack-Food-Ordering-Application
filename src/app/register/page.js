@@ -24,6 +24,7 @@ export default function RegisterPage() {
     if (response.ok) {
       setUserCreated(true);
     } else {
+      console.log(response);
       setError(true);
     }
     setCreatingUser(false);
@@ -58,7 +59,7 @@ export default function RegisterPage() {
         />
         <input
           type="password"
-          placeholder="password"
+          placeholder="password (at least 5 characters)"
           disabled={creatingUser}
           value={password}
           onChange={(ev) => setPassword(ev.target.value)}

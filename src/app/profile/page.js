@@ -29,6 +29,9 @@ export default function ProfilePage() {
         });
       });
     }
+    if (status === "unauthenticated") {
+      return redirect("/login");
+    }
   }, [session, status]);
 
   if (status === "loading" || !profileFetched) {

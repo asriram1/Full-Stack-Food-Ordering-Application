@@ -5,15 +5,22 @@ import UserTabs from "@/app/components/layout/UserTabs";
 import { useProfile } from "@/app/components/UseProfile";
 import dbTimeForHuman from "@/libs/datetime";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(false);
   const { loading, data: profile } = useProfile();
+  const session = useSession();
+  const { status } = session;
 
   useEffect(() => {
+    if (status === "unauthenticated") {
+      return redirect("/login");
+    }
     fetchOrders();
-  }, []);
+  }, [session]);
 
   function fetchOrders() {
     setLoadingOrders(true);
