@@ -26,6 +26,7 @@ function AuthLinks({ status, userName }) {
   if (status === "unauthenticated" || status === undefined || status === null) {
     return (
       <>
+        <Link href={"/testing"}>Testing the platform?</Link>
         <Link href={"/login"}>Login</Link>
         <Link
           href={"/register"}
