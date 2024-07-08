@@ -23,7 +23,7 @@ function AuthLinks({ status, userName }) {
       </>
     );
   }
-  if (status === "unauthenticated") {
+  if (status === "unauthenticated" || status === undefined || status === null) {
     return (
       <>
         <Link href={"/login"}>Login</Link>
@@ -41,7 +41,7 @@ function AuthLinks({ status, userName }) {
 export default function Header() {
   const session = useSession();
   console.log(session);
-  const userData = session.data?.user;
+  const userData = session?.data?.user;
   let userName = userData?.name || userData?.email;
   const status = session?.status;
   const { cartProducts } = useContext(CartContext);
@@ -49,6 +49,9 @@ export default function Header() {
 
   if (userName && userName.includes(" ")) {
     userName = userName.split(" ")[0];
+  }
+  if (userName && userName.includes("@")) {
+    userName = userName.split("@")[0];
   }
   return (
     <>

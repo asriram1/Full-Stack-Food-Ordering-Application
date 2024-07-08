@@ -1,7 +1,8 @@
 "use client";
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
 import { createContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import getSessionUser from "./getSessionUser";
 
 export const CartContext = createContext({});
 
@@ -22,12 +23,27 @@ export function cartProductPrice(cartProduct) {
 
 export function AppProvider({ children }) {
   const [cartProducts, setCartProducts] = useState([]);
+  const [cartName, setCartName] = useState("");
   const ls = typeof window !== "undefined" ? window.localStorage : null;
+  // const session = useSession();
 
   useEffect(() => {
-    if (ls && ls.getItem("cart")) {
-      setCartProducts(JSON.parse(ls.getItem("cart")));
-    }
+    const username = async () => {
+      const username = await getSessionUser();
+      console.log(username);
+      return username;
+    };
+    username().then((user) => {
+      const cartName = "cart" + user + "food-app";
+      console.log(ls);
+      if (ls && ls.getItem(cartName)) {
+        setCartProducts(JSON.parse(ls.getItem(cartName)));
+      }
+    });
+    // console.log(username);
+    // const userData = session?.data?.user;
+    // let userName = userData?.name || userData?.email;
+    // const cartName = "cart" + userName;
   }, []);
 
   function clearCart() {
@@ -45,9 +61,12 @@ export function AppProvider({ children }) {
     });
     toast.success("Product removed");
   }
-  function saveCartProductsToLocalStorage(cartProducts) {
+  async function saveCartProductsToLocalStorage(cartProducts) {
+    const username = await getSessionUser();
+    const cartName = "cart" + username + "food-app";
+    setCartName(cartName);
     if (ls) {
-      ls.setItem("cart", JSON.stringify(cartProducts));
+      ls.setItem(cartName, JSON.stringify(cartProducts));
     }
   }
 

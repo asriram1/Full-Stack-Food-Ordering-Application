@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Right from "../icons/Right";
+import { redirect } from "next/navigation";
+import Router from "next/navigation";
 
 export default function Hero() {
   return (
@@ -14,15 +16,18 @@ export default function Hero() {
           Pizza is the missing piece that makes every day complete. A simple yet
           delicious joy in life.
         </p>
-        <div className="flex gap-4 text-sm">
-          <button className="flex justify-center bg-primary uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full">
+        <div className="flex gap-6 text-sm">
+          <a
+            href={"/menu"}
+            className="primary font-semibold flex justify-center bg-primary uppercase flex items-center gap-2 text-white px-6 py-2 rounded-full"
+          >
             Order Now
             <Right />
-          </button>
-          <button className="flex border-0 gap-2 py-2 text-gray-600 font-semibold ">
+          </a>
+          <a href={"/#about"} className="learn">
             Learn More
             <Right />
-          </button>
+          </a>
         </div>
       </div>
 
