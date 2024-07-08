@@ -2,6 +2,8 @@
 
 Application Link -   https://anirudh-food-ordering.vercel.app
 
+If you want to see the Admin View of the platform login as - `email: admin@gmail.com password: admin`
+
 This platform hosts the online delivery system for a pizza store. Allows the pizza store to list menu items, and customers to create an account, add items to cart & pay for delivery to their address.  Uses Google Oauth for authentication, AWS S3 for storing images and Stripe for payment. 
 
 ## Running the code locally
