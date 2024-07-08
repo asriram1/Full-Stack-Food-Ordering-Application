@@ -14,9 +14,9 @@ export default function TestingPage() {
             Login as an admin to view all the functionality: <br />
             email: <b>admin@gmail.com</b> <br />
             password: <b>admin</b> <br />
-            Once logged in you can click the 'Hello, Admin' button to be able to
-            view/add/edit menu items, categories, users, and all orders on the
-            platform.
+            Once logged in you can click the &apos;Hello, Admin&apos; button to
+            be able to view/add/edit menu items, categories, users, and all
+            orders on the platform.
           </p>
         </div>
       </div>
