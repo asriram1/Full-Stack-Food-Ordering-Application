@@ -1,26 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 export default function EditableImage({ link, setLink }) {
+  const [error, setError] = useState(false);
   async function handleFileChange(ev) {
     const files = ev.target.files;
 
     if (files?.length == 1) {
       const data = new FormData();
-      data.set("file", files[0]);
-      toast("Uploading...");
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        body: data,
+      const API_ENDPOINT =
+        "https://qwcopx6bih.execute-api.us-east-1.amazonaws.com/default/getPresignedUrl-food-app";
+      const bucket = "anirudh-food-ordering";
+
+      let key = "";
+      const getPresignedUrl = async () => {
+        const response = await axios({
+          method: "GET",
+          url: API_ENDPOINT,
+        });
+        // return response;
+        const preSignedUrl = response.data.presignedUrl;
+        key = response.data.key;
+
+        return preSignedUrl;
+      };
+      const presignedUrl = await getPresignedUrl();
+      const uploadResponse = await axios.put(presignedUrl, files[0], {
+        headers: {
+          "Content-Type": "image/jpeg",
+        },
       });
-      const link = await response.json();
-      setLink(link);
-      if (response.ok) {
-        toast.success("Upload Complete");
-      } else {
+      if (uploadResponse.status !== 200) {
         toast.error("Upload Error");
+        setError(true);
       }
+      if (!error) {
+        const link = "https://" + bucket + ".s3.amazonaws.com/" + key;
+        setLink(link);
+      }
+
+      // data.set("file", files[0]);
+      // toast("Uploading...");
+      // const response = await fetch("/api/upload", {
+      //   method: "POST",
+      //   body: data,
+      // });
+      // const link = await response.json();
+      // setLink(link);
+      // if (response.ok) {
+      //   toast.success("Upload Complete");
+      // } else {
+      //   toast.error("Upload Error");
+      // }
+    }
+    if (!error) {
+      toast.success("Upload Complete");
     }
   }
   return (
