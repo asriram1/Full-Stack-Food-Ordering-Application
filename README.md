@@ -1,6 +1,6 @@
 ## Technologies:  (Next.js (React), Node.js, MongoDB, TailwindCSS, AWS, Vercel) 
 
-Application Link -   https://anirudh-food-ordering.vercel.app
+Application Link -   https://tonys-pizza-place.vercel.app/
 
 If you want to see the Admin View of the platform login as - `email: admin@gmail.com password: admin`
 
